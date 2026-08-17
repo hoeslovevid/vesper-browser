@@ -1,0 +1,64 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Vesper privacy defaults.
+# Stronger than stock Firefox, milder than full Resist Fingerprinting,
+# so sites and Firefox add-ons keep working. Users can loosen these
+# in about:config unless a pref is locked (telemetry stays locked in
+# prefs/privatefox/privacy.yaml).
+
+# Tracking protection
+- name: browser.contentblocking.category
+  value: strict
+
+- name: privacy.trackingprotection.enabled
+  value: true
+
+- name: privacy.trackingprotection.socialtracking.enabled
+  value: true
+
+- name: privacy.trackingprotection.emailtracking.enabled
+  value: true
+
+- name: privacy.fingerprintingProtection
+  value: true
+
+- name: privacy.fingerprintingProtection.pbmode
+  value: true
+
+# Full RFP breaks too many sites and extensions. Keep it off by default.
+- name: privacy.resistFingerprinting
+  value: false
+
+# HTTPS-Only
+- name: dom.security.https_only_mode
+  value: true
+
+- name: dom.security.https_only_mode_pbm
+  value: true
+
+# Query stripping and bounce tracking
+- name: privacy.query_stripping.enabled
+  value: true
+
+- name: privacy.query_stripping.enabled.pbmode
+  value: true
+
+- name: privacy.bounceTrackingProtection.mode
+  value: 1
+
+# Cookie banners: reject all when possible
+- name: cookiebanners.service.mode
+  value: 1
+
+- name: cookiebanners.service.mode.privateBrowsing
+  value: 1
+
+# Global Privacy Control
+- name: privacy.globalprivacycontrol.functionality.enabled
+  value: true
+
+# Punycode for lookalike IDN domains
+- name: network.IDN_show_punycode
+  value: true

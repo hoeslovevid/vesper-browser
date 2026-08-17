@@ -1,0 +1,27 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Keep malware/phishing lists. Do not send downloaded-file hashes to Google.
+- name: browser.safebrowsing.malware.enabled
+  value: true
+
+- name: browser.safebrowsing.phishing.enabled
+  value: true
+
+- name: browser.safebrowsing.downloads.enabled
+  value: true
+
+- name: browser.safebrowsing.downloads.remote.enabled
+  value: false
+
+# AMO-signed Firefox extensions stay required for the public build.
+- name: xpinstall.whitelist.required
+  value: true
+
+# Do not send crash reports automatically
+- name: browser.crashReports.unsubmittedCheck.enabled
+  value: false
+
+- name: toolkit.coverage.enabled
+  value: false
