@@ -2,8 +2,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+# Vesper gold (crescent/star), not the Windows system accent.
 - name: zen.theme.accent-color
-  value: "AccentColor"
+  value: "#E8C58A"
 
 - name: zen.theme.content-element-separation
   value: 8
@@ -36,8 +37,9 @@
   value: true
   condition: "defined(XP_MACOSX)"
 
+# Vesper keeps AMO extensions; the puzzle-piece button must stay visible.
 - name: zen.theme.hide-unified-extensions-button
-  value: true
+  value: false
 
 # ==== Mark: border radius ====
 

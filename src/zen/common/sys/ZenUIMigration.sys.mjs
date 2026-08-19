@@ -12,7 +12,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 
 class nsZenUIMigration {
   PREF_NAME = "zen.ui.migration.version";
-  MIGRATION_VERSION = 6;
+  MIGRATION_VERSION = 7;
 
   init(isNewProfile) {
     if (!isNewProfile) {
@@ -149,6 +149,24 @@ class nsZenUIMigration {
         }
       }, 1000);
     });
+  }
+
+  _migrateV7() {
+    const accent = Services.prefs.getStringPref("zen.theme.accent-color", "");
+    if (
+      accent === "AccentColor" ||
+      accent === "" ||
+      accent.startsWith("system")
+    ) {
+      Services.prefs.setStringPref("zen.theme.accent-color", "#E8C58A");
+    }
+    Services.prefs.setBoolPref(
+      "zen.theme.hide-unified-extensions-button",
+      false
+    );
+    Services.prefs.setBoolPref("zen.view.hide-window-controls", false);
+    // Unofficial builds previously marked welcome as already seen.
+    Services.prefs.setBoolPref("zen.welcome-screen.seen", false);
   }
 }
 

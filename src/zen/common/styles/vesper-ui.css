@@ -1,0 +1,64 @@
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/* Additive Vesper chrome. Keep zen-*.css untouched so Zen upstream still merges. */
+
+:host(:is(.anonymous-content-host, notification-message)),
+:root {
+  --zen-branding-dark: #12141c;
+  --zen-branding-paper: #f3eee6;
+  --vesper-gold: #e8c58a;
+}
+
+/* Idle URL bar should look like a place you can type, not empty chrome. */
+:root[zen-single-toolbar="true"] #urlbar:not([breakout-extend]) .urlbar-background {
+  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 20%, transparent);
+}
+
+#urlbar[focused="true"] > .urlbar-background,
+#urlbar[breakout-extend] > .urlbar-background {
+  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 50%, transparent) !important;
+}
+
+.urlbar-input::placeholder {
+  opacity: 0.72;
+}
+
+/* Selected vertical tab: gold rather than Windows accent blue. */
+.tabbrowser-tab[selected] .tab-background {
+  box-shadow: inset 2px 0 0 var(--vesper-gold);
+}
+
+:root[zen-right-side="true"] .tabbrowser-tab[selected] .tab-background {
+  box-shadow: inset -2px 0 0 var(--vesper-gold);
+}
+
+/* Windows caption buttons stay hittable once they are no longer auto-hidden. */
+@media (-moz-platform: windows) {
+  .titlebar-button {
+    min-width: 46px;
+  }
+
+  .titlebar-close:hover {
+    background-color: #c42b1c !important;
+  }
+}
+
+/* Welcome: brand the second title line without rewriting Zen’s layout. */
+#zen-welcome-title span:last-child {
+  color: var(--vesper-gold);
+  font-family: "Zen-Junicode-Italic", "Zen-Junicode", serif;
+  font-style: italic;
+}
+
+#zen-welcome-pages {
+  border: 1px solid color-mix(in srgb, var(--vesper-gold) 16%, transparent);
+}
+
+#zen-welcome-start-button {
+  background: color-mix(in srgb, var(--vesper-gold) 85%, white) !important;
+  color: #12141c !important;
+}

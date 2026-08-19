@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 zen-welcome-title-line1 = Welcome to
-zen-welcome-title-line2 = a calmer internet
+zen-welcome-title-line2 = Vesper
 
 zen-welcome-import-title = A Fresh Start, Same Bookmarks
 zen-welcome-import-description-1 = Your bookmarks, history, and passwords are like a trail of breadcrumbs through the internet—don’t leave them behind!
@@ -21,13 +21,13 @@ zen-welcome-workspace-colors-title = Your Workspaces, Your Colors
 zen-welcome-workspace-colors-description = Personalize your browser by giving each workspace its own unique color identity.
 
 zen-welcome-start-browsing-title = All set?<br/>
-    Let’s get rolling!
-zen-welcome-start-browsing-description-1 = You’re all set up and ready to go. Click the button below to start browsing with { -brand-short-name }.
-zen-welcome-start-browsing = Dive in!
+    Let’s go.
+zen-welcome-start-browsing-description-1 = You’re ready. Click below to start browsing with { -brand-short-name }.
+zen-welcome-start-browsing = Start browsing
 
 zen-welcome-default-search-title = Your Default Search Engine
 zen-welcome-default-search-description = Choose your default search engine. You can always change it later!
 
 zen-welcome-skip-button = Skip
 
-zen-welcome-finished = Your Zen has been set up correctly!
+zen-welcome-finished = { -brand-short-name } is ready.

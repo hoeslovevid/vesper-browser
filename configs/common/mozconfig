@@ -29,14 +29,22 @@ export MOZ_INCLUDE_SOURCE_INFO=1
 
 ac_add_options --enable-application=browser
 
-# Fetch other Mozilla toolchains into ~/.mozbuild when taskgraph works.
-# Local Windows: use the official LLVM clang-cl (mach taskgraph cannot
-# resolve toolchains until the engine tree is a full git commit).
-ac_add_options --enable-bootstrap
-export CC="C:/Program Files/LLVM/bin/clang-cl.exe"
-export CXX="C:/Program Files/LLVM/bin/clang-cl.exe"
-export HOST_CC="C:/Program Files/LLVM/bin/clang-cl.exe"
-export HOST_CXX="C:/Program Files/LLVM/bin/clang-cl.exe"
+# Spaceless junctions: C:\llvm -> C:\Program Files\LLVM, NASM at C:\nasm
+# (configure splits on spaces; "Program Files" becomes "Files/LLVM/...")
+# no-update: use already-downloaded toolchains; full bootstrap needs a complete engine git tree
+ac_add_options --enable-bootstrap=no-update
+export CC="C:/llvm/bin/clang-cl.exe"
+export CXX="C:/llvm/bin/clang-cl.exe"
+export HOST_CC="C:/llvm/bin/clang-cl.exe"
+export HOST_CXX="C:/llvm/bin/clang-cl.exe"
+export NASM="C:/nasm/nasm.exe"
+export MOZ_WINDOWS_APP_SDK_DIR="C:/vesper/toolchains/winappsdk-x86_64-pc-windows-msvc"
+ac_add_options --with-wasi-sysroot="C:/vesper/toolchains/sysroot-wasm32-wasi"
+# Single-path compilers only: MSYS2 mangles `-resource-dir=C:/...` into `C;C:\...`
+export WASM_CC="C:/vesper/toolchains/wasm-clang/bin/clang.exe"
+export WASM_CXX="C:/vesper/toolchains/wasm-clang/bin/clang++.exe"
+export MOZ_WINDOWS_RS_DIR="C:/vesper/toolchains/windows-rs"
+export GMAKE="C:/vesper/toolchains/mozmake/mozmake.exe"
 
 if test "$SCCACHE_GHA_ENABLED" = "true"; then
   if test -x "$(command -v sccache)"; then

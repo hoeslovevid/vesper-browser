@@ -25,8 +25,9 @@
 - name: zen.view.experimental-force-window-controls-left
   value: false
 
+# Hover-to-show min/max/close is easy to miss on Windows.
 - name: zen.view.hide-window-controls
-  value: true
+  value: false
 
 - name: zen.view.experimental-no-window-controls
   value: false

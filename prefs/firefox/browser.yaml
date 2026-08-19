@@ -18,13 +18,14 @@
   value: true
 
 - name: browser.toolbars.bookmarks.visibility
-  value: "never"
+  value: "newtab"
 
 - name: widget.non-native-theme.scrollbar.style
   value: 2
 
+# Use Vesper’s gold accent instead of the Windows system color.
 - name: widget.non-native-theme.use-theme-accent
-  value: true
+  value: false
 
 - name: browser.download.autohideButton
   value: false

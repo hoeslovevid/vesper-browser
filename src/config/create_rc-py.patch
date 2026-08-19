@@ -1,0 +1,13 @@
+diff --git a/config/create_rc.py b/config/create_rc.py
+--- a/config/create_rc.py
++++ b/config/create_rc.py
+@@ -182,7 +182,7 @@ def last_winversion_segment(buildid, app_version_display):
+             hours_from_milestone_date = min(
+                 int(time_delta.total_seconds() / 3600), MAX_VALUE
+             )
+-    except MissingVCSTool:
++    except (MissingVCSTool, ValueError, OSError):
+         # If we're here we can't use the VCS to determine the time differential, so
+         # we'll just set it to the maximum value instead of doing something weird.
+         hours_from_milestone_date = MAX_VALUE
+         pass

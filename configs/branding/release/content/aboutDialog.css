@@ -1,0 +1,29 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@media not ((prefers-contrast) and (prefers-color-scheme: light)) {
+  #aboutDialogContainer {
+    background-color: #12141c;
+    color: #f4ede4;
+    color-scheme: dark;
+  }
+
+  #bottomBox {
+    background-color: rgba(18, 20, 28, 0.55);
+  }
+}
+
+#rightBox {
+  background-size: auto 44px;
+  margin-inline: 30px;
+  padding-top: 64px;
+}
+
+#bottomBox {
+  padding: 15px 10px;
+}
+
+:root {
+  --theme-bg: #12141c;
+}
