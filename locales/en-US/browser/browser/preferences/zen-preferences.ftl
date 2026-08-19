@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-pane-zen-looks-title = Look and Feel
+pane-zen-looks-title = Appearance
 category-zen-looks =
     .tooltiptext = { pane-zen-looks-title }
 
@@ -11,22 +11,22 @@ zen-warning-language = Changing the default language could make it easier for We
 zen-vertical-tabs-layout-header = Browser Layout
 zen-vertical-tabs-layout-description = Choose the layout that suits you best
 
-zen-layout-single-toolbar = Only Sidebar
-zen-layout-multiple-toolbar = Sidebar and Top Toolbar
-zen-layout-collapsed-toolbar = Collapsed Sidebar
+zen-layout-single-toolbar = Compact sidebar
+zen-layout-multiple-toolbar = Sidebar and toolbar
+zen-layout-collapsed-toolbar = Collapsed sidebar
 
-sync-currently-syncing-workspaces = Workspaces
+sync-currently-syncing-workspaces = Spaces
 sync-engine-workspaces =
-    .label = Workspaces
-    .tooltiptext = Sync your workspaces across devices
-    .accesskey = W
+    .label = Spaces
+    .tooltiptext = Sync your spaces across devices
+    .accesskey = S
 
-zen-glance-title = Glance
-zen-glance-header = General settings for glance
-zen-glance-description = Get a quick overview of your links without opening them in a new tab
+zen-glance-title = Peek
+zen-glance-header = Peek settings
+zen-glance-description = Preview a link without opening a full tab
 zen-glance-trigger-label = Trigger method
 zen-glance-enabled =
-    .label = Enable Glance
+    .label = Enable Peek
 
 zen-glance-trigger-ctrl-click =
     .label = Ctrl + Click
@@ -51,7 +51,7 @@ zen-look-and-feel-compact-toolbar-flash-popup =
 pane-zen-tabs-title = Tab Management
 category-zen-workspaces =
     .tooltiptext = { pane-zen-tabs-title }
-pane-settings-workspaces-title = Workspaces
+pane-settings-workspaces-title = Spaces
 
 zen-tabs-select-recently-used-on-close =
     .label = When closing a tab, switch to the most recently used tab instead of the next tab
@@ -95,11 +95,11 @@ zen-pinned-tab-manager-reset-close-shortcut-option =
 zen-pinned-tab-manager-close-close-shortcut-option =
     .label = Close tab
 
-pane-zen-workspaces-header = Workspaces
-zen-settings-workspaces-header = General settings for workspaces
-zen-settings-workspaces-description = With workspaces, you can have multiple browsing sessions at once!
+pane-zen-workspaces-header = Spaces
+zen-settings-workspaces-header = Spaces
+zen-settings-workspaces-description = Keep work, personal, and other sessions in separate spaces.
 zen-settings-workspaces-enabled =
-    .label = Enable Workspaces
+    .label = Enable Spaces
 zen-settings-workspaces-hide-default-container-indicator =
     .label = Hide the default container indicator in the tab bar
 
@@ -108,9 +108,9 @@ zen-key-conflict = Conflicts with { $group } -> { $shortcut }
 
 pane-zen-theme-title = Theme Settings
 
-zen-vertical-tabs-title = Sidebar and tabs layout
-zen-vertical-tabs-header = Vertical Tabs
-zen-vertical-tabs-description = Manage your tabs in a vertical layout
+zen-vertical-tabs-title = Tabs and layout
+zen-vertical-tabs-header = Vertical sidebar
+zen-vertical-tabs-description = Optional sidebar layout. Vesper defaults to a compact top tab bar.
 zen-vertical-tabs-show-expand-button =
     .label = Show Expand Button
 zen-vertical-tabs-newtab-on-tab-list =
@@ -125,7 +125,7 @@ zen-vertical-tabs-expand-tabs-on-hover = Expand Tabs on Hover (Won't work on com
 zen-vertical-tabs-expand-tabs-header = How to expand tabs
 zen-vertical-tabs-expand-tabs-description = Choose how to expand tabs in the sidebar
 
-zen-theme-marketplace-header = Mods
+zen-theme-marketplace-header = Themes
 zen-theme-disable-all-enabled =
     .title = Disable all mods
 zen-theme-disable-all-disabled =
@@ -157,9 +157,9 @@ zen-theme-marketplace-dropdown-default-label =
     .label = None
 zen-theme-marketplace-input-default-placeholder =
     .placeholder = Type something...
-pane-zen-marketplace-title = Mods
+pane-zen-marketplace-title = Themes
 zen-themes-auto-update =
-   .label = Automatically update installed mods on startup
+   .label = Automatically update installed themes on startup
 
 zen-settings-workspaces-force-container-tabs-to-workspace =
     .label = Switch to workspace where container is set as default when opening container tabs
@@ -217,7 +217,7 @@ zenCKSOption-group-pageOperations = Page Operations
 zenCKSOption-group-historyAndBookmarks = History & Bookmarks
 zenCKSOption-group-mediaAndDisplay = Media & Display
 zenCKSOption-group-zen-compact-mode = Compact Mode
-zenCKSOption-group-zen-workspace = Workspaces
+zenCKSOption-group-zen-workspace = Spaces
 zenCKSOption-group-zen-other = Other Features
 zenCKSOption-group-zen-split-view = Split View
 zenCKSOption-group-devTools = Developer Tools
@@ -308,7 +308,7 @@ zen-close-tab-shortcut = Close Tab
 zen-compact-mode-shortcut-show-sidebar = Toggle Floating Sidebar
 zen-compact-mode-shortcut-show-toolbar = Toggle Floating Toolbar
 zen-compact-mode-shortcut-toggle = Toggle Compact Mode
-zen-glance-expand = Expand Glance
+zen-glance-expand = Expand Peek
 zen-workspace-shortcut-switch-1 = Switch to Workspace 1
 zen-workspace-shortcut-switch-2 = Switch to Workspace 2
 zen-workspace-shortcut-switch-3 = Switch to Workspace 3

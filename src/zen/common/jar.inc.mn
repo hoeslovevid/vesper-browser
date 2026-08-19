@@ -8,6 +8,7 @@
 
         content/browser/ZenStartup.mjs                                          (../../zen/common/modules/ZenStartup.mjs)
         content/browser/ZenUpdates.mjs                                          (../../zen/common/modules/ZenUpdates.mjs)
+        content/browser/VesperUpdateChecker.mjs                                 (../../zen/common/modules/VesperUpdateChecker.mjs)
         content/browser/ZenUIManager.mjs                                        (../../zen/common/modules/ZenUIManager.mjs)
         content/browser/zen-components/ZenCommonUtils.mjs                       (../../zen/common/modules/ZenCommonUtils.mjs)
         content/browser/zen-components/ZenSessionStore.mjs                      (../../zen/common/modules/ZenSessionStore.mjs)

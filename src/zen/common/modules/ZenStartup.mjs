@@ -5,6 +5,7 @@
 import checkForZenUpdates, {
   createWindowUpdateAnimation,
 } from "chrome://browser/content/ZenUpdates.mjs";
+import { initVesperUpdateChecker } from "chrome://browser/content/VesperUpdateChecker.mjs";
 
 class ZenStartup {
   #watermarkIgnoreElements = ["zen-toast-container", "zen-browser-background"];
@@ -110,6 +111,7 @@ class ZenStartup {
           .catch(console.error)
           .then(() => gZenWorkspaces._invalidateBookmarkContainers());
       });
+      initVesperUpdateChecker();
     });
   }
 

@@ -22,7 +22,7 @@
       "release": {
         "displayVersion": "0.1.0a",
         "github": {
-          "repo": "vesper-browser/desktop"
+          "repo": "hoeslovevid/vesper-browser"
         },
         "archives": {
           "windows": "windows.mar",
@@ -42,7 +42,7 @@
       "release": {
         "displayVersion": "0.1.0t",
         "github": {
-          "repo": "vesper-browser/desktop"
+          "repo": "hoeslovevid/vesper-browser"
         }
       }
     }

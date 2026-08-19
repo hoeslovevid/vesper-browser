@@ -5,20 +5,20 @@
 zen-welcome-title-line1 = Welcome to
 zen-welcome-title-line2 = Vesper
 
-zen-welcome-import-title = A Fresh Start, Same Bookmarks
-zen-welcome-import-description-1 = Your bookmarks, history, and passwords are like a trail of breadcrumbs through the internet—don’t leave them behind!
-zen-welcome-import-description-2 = Easily bring them over from another browser and pick up right where you left off.
+zen-welcome-import-title = Bring your bookmarks
+zen-welcome-import-description-1 = Bookmarks, history, and passwords can come with you.
+zen-welcome-import-description-2 = Import from another browser and pick up where you left off.
 zen-welcome-import-button = Import now
 
 zen-welcome-set-default-browser = Set { -brand-short-name } as your default browser
-zen-welcome-dont-set-default-browser = DON’T set { -brand-short-name } as your default browser
+zen-welcome-dont-set-default-browser = Don’t set as default
 
-zen-welcome-initial-essentials-title = Your Key Tabs, Always Within Reach
-zen-welcome-initial-essentials-description-1 = Keep your most important tabs easily accessible and always at hand, no matter how many you open.
-zen-welcome-initial-essentials-description-2 = Essential tabs are always visible, no matter what workspace you are in.
+zen-welcome-initial-essentials-title = Pin what you use most
+zen-welcome-initial-essentials-description-1 = Keep a few sites within reach, the way a dock keeps your apps close.
+zen-welcome-initial-essentials-description-2 = Pinned sites stay available no matter which space you are in.
 
-zen-welcome-workspace-colors-title = Your Workspaces, Your Colors
-zen-welcome-workspace-colors-description = Personalize your browser by giving each workspace its own unique color identity.
+zen-welcome-workspace-colors-title = Color your spaces
+zen-welcome-workspace-colors-description = Give each space a quiet color so work and personal browsing stay distinct.
 
 zen-welcome-start-browsing-title = All set?<br/>
     Let’s go.

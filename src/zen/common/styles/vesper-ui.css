@@ -11,32 +11,56 @@
   --zen-branding-dark: #12141c;
   --zen-branding-paper: #f3eee6;
   --vesper-gold: #e8c58a;
+  --vesper-chrome: light-dark(#e8e4dc, #12141c);
+  --vesper-pill: light-dark(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.08));
+  --zen-toolbar-height: 36px;
+  --toolbarbutton-border-radius: 10px;
+  --button-border-radius: 10px;
 }
 
-/* Idle URL bar should look like a place you can type, not empty chrome. */
-:root[zen-single-toolbar="true"] #urlbar:not([breakout-extend]) .urlbar-background {
-  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 20%, transparent);
+:root {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    "Segoe UI",
+    "SF Pro Text",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+.zen-branding-title {
+  font-family: ui-sans-serif, system-ui, "Segoe UI", "SF Pro Display", sans-serif !important;
+  font-feature-settings: normal !important;
+  font-weight: 560 !important;
+  letter-spacing: -0.04em;
+}
+
+#urlbar:not([breakout-extend]) .urlbar-background {
+  background: var(--vesper-pill) !important;
+  border-radius: 999px !important;
+  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 18%, transparent);
 }
 
 #urlbar[focused="true"] > .urlbar-background,
 #urlbar[breakout-extend] > .urlbar-background {
-  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 50%, transparent) !important;
+  outline: 1px solid color-mix(in srgb, var(--vesper-gold) 55%, transparent) !important;
+  border-radius: 14px !important;
 }
 
 .urlbar-input::placeholder {
-  opacity: 0.72;
+  opacity: 0.65;
 }
 
-/* Selected vertical tab: gold rather than Windows accent blue. */
 .tabbrowser-tab[selected] .tab-background {
-  box-shadow: inset 2px 0 0 var(--vesper-gold);
+  background: color-mix(in srgb, var(--vesper-gold) 22%, transparent) !important;
+  box-shadow: none;
 }
 
 :root[zen-right-side="true"] .tabbrowser-tab[selected] .tab-background {
-  box-shadow: inset -2px 0 0 var(--vesper-gold);
+  box-shadow: none;
 }
 
-/* Windows caption buttons stay hittable once they are no longer auto-hidden. */
 @media (-moz-platform: windows) {
   .titlebar-button {
     min-width: 46px;
@@ -47,18 +71,142 @@
   }
 }
 
-/* Welcome: brand the second title line without rewriting Zen’s layout. */
 #zen-welcome-title span:last-child {
   color: var(--vesper-gold);
-  font-family: "Zen-Junicode-Italic", "Zen-Junicode", serif;
-  font-style: italic;
+  font-family: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  font-style: normal;
+  font-weight: 520;
 }
 
 #zen-welcome-pages {
   border: 1px solid color-mix(in srgb, var(--vesper-gold) 16%, transparent);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(18, 20, 28, 0.18);
 }
 
 #zen-welcome-start-button {
   background: color-mix(in srgb, var(--vesper-gold) 85%, white) !important;
   color: #12141c !important;
+  border-radius: 999px !important;
+}
+
+/* Safari-like: horizontal tabs, toolbox as a thin top chrome, no left sidebar. */
+@media not -moz-pref("zen.tabs.vertical") {
+  #browser {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+  }
+
+  #zen-sidebar-splitter,
+  #sidebar-launcher-splitter {
+    display: none !important;
+  }
+
+  #navigator-toolbox {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 4px 10px 6px !important;
+    order: 0 !important;
+    background: transparent !important;
+  }
+
+  #zen-appcontent-wrapper {
+    width: 100% !important;
+    min-height: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  #zen-tabbox-wrapper,
+  #tabbrowser-tabbox {
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  #tabbrowser-tabs,
+  #TabsToolbar,
+  #titlebar,
+  #TabsToolbar-customization-target {
+    flex-direction: row !important;
+    height: auto !important;
+    width: 100% !important;
+    max-height: none !important;
+  }
+
+  #tabbrowser-arrowscrollbox {
+    height: auto !important;
+  }
+
+  #titlebar {
+    order: 1;
+    min-width: 0 !important;
+  }
+
+  #nav-bar {
+    order: 2;
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  #zen-sidebar-top-buttons {
+    order: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+
+  #urlbar-container {
+    max-width: 720px !important;
+    margin-inline: auto !important;
+  }
+
+  .tabbrowser-tab {
+    max-width: 168px;
+    min-width: 72px !important;
+  }
+
+  .tab-background {
+    border-radius: 10px !important;
+    margin-block: 2px !important;
+  }
+
+  #zen-essentials,
+  .zen-essentials-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 6px !important;
+  }
+
+  .zen-current-workspace-indicator-name {
+    display: none !important;
+  }
+
+  .zen-current-workspace-indicator {
+    padding: 0 6px !important;
+    min-width: 36px;
+  }
+
+  #zen-sidebar-foot-buttons {
+    flex-direction: row !important;
+    width: auto !important;
+    position: static !important;
+  }
+
+  #vertical-tabs-newtab-button {
+    min-width: 32px;
+  }
+}
+
+:root:not([zen-no-padding="true"]) #tabbrowser-tabpanels .browserSidebarContainer:not(.zen-glance-overlay) {
+  border-radius: 12px;
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--vesper-gold) 10%, transparent),
+    0 10px 28px rgba(18, 20, 28, 0.12);
 }

@@ -24,6 +24,7 @@ export class nsZenMenuBar {
     this.#initViewMenu();
     this.#initSpacesMenu();
     this.#initAppMenu();
+    this.#initUpdateMenu();
     this.#hideWindowRestoreMenus();
   }
 
@@ -130,6 +131,33 @@ export class nsZenMenuBar {
                 key="zen-new-unsynced-window"
                 command="cmd_zenNewNavigatorUnsynced"/>`)
     );
+  }
+
+  #initUpdateMenu() {
+    const helpPopup = document.getElementById("menu_HelpPopup");
+    if (!helpPopup || document.getElementById("vesper-check-for-updates")) {
+      return;
+    }
+    window.MozXULElement.insertFTLIfNeeded("browser/vesper-updates.ftl");
+    const item = window.MozXULElement.parseXULToFragment(`
+      <menuitem id="vesper-check-for-updates"
+                data-l10n-id="vesper-updates-check-menu"/>
+    `);
+    const aboutItem = document.getElementById("aboutName");
+    if (aboutItem) {
+      aboutItem.before(item);
+    } else {
+      helpPopup.prepend(item);
+    }
+    document
+      .getElementById("vesper-check-for-updates")
+      .addEventListener("command", () => {
+        import("chrome://browser/content/VesperUpdateChecker.mjs")
+          .then(mod =>
+            mod.checkForVesperUpdates({ force: true, interactive: true })
+          )
+          .catch(console.error);
+      });
   }
 
   #hideWindowRestoreMenus() {

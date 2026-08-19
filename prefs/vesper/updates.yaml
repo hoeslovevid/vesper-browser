@@ -1,0 +1,21 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- name: vesper.updates.enabled
+  value: true
+
+- name: vesper.updates.github-repo
+  value: "hoeslovevid/vesper-browser"
+
+- name: vesper.updates.check-interval-seconds
+  value: 86400
+
+- name: vesper.updates.last-check
+  value: 0
+
+- name: vesper.updates.last-notified-tag
+  value: ""
+
+- name: vesper.updates.include-prerelease
+  value: false

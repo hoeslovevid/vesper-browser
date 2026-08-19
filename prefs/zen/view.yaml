@@ -16,11 +16,12 @@
   value: true
   condition: "defined(XP_MACOSX)"
 
+# Forced on when vertical tabs are off; keep false so a top URL bar exists if users re-enable the sidebar.
 - name: zen.view.use-single-toolbar
-  value: true
+  value: false
 
 - name: zen.view.sidebar-expanded
-  value: true
+  value: false
 
 - name: zen.view.experimental-force-window-controls-left
   value: false

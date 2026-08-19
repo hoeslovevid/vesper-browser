@@ -7,7 +7,7 @@
   value: "#E8C58A"
 
 - name: zen.theme.content-element-separation
-  value: 8
+  value: 10
 
 - name: zen.theme.dark-mode-bias
   value: 0.3
@@ -46,4 +46,4 @@
 # -1 will use platform-native values
 # Set to a positive value to override with a custom radius
 - name: zen.theme.border-radius
-  value: -1
+  value: 12

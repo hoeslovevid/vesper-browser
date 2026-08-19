@@ -8,21 +8,21 @@ unified-extensions-description = Extensions are used to bring more extra functio
 tab-context-zen-reset-pinned-tab =
     .label =
         { $isEssential ->
-            [true] Reset Essential Tab
+            [true] Reset Pinned Tab
            *[false] Reset Pinned Tab
         }
     .accesskey = R
 tab-context-zen-add-essential =
-    .label = Add to Essentials
-    .accesskey = E
+    .label = Add to Dock
+    .accesskey = D
 tab-context-zen-add-essential-badge = { $num } / { $max }
 tab-context-zen-remove-essential =
-    .label = Remove from Essentials
-    .accesskey = R
+    .label = Remove from Dock
+    .accesskey = D
 tab-context-zen-replace-pinned-url-with-current =
     .label =
         { $isEssential ->
-            [true] Replace Essential URL with Current
+            [true] Replace Pinned URL with Current
            *[false] Replace Pinned URL with Current
         }
     .accesskey = C
@@ -57,7 +57,7 @@ zen-general-confirm =
 zen-pinned-tab-replaced = Pinned tab URL has been replaced with the current URL!
 zen-tabs-renamed = Tab has been successfully renamed!
 zen-background-tab-opened-toast = New background tab opened!
-zen-workspace-renamed-toast = Workspace has been successfully renamed!
+zen-workspace-renamed-toast = Space has been renamed.
 zen-split-view-limit-toast = Can't add more panels to the split view!
 
 zen-toggle-compact-mode-button =
@@ -85,8 +85,8 @@ zen-generic-manage = Manage
 zen-generic-more = More
 zen-generic-next = Next
 
-zen-essentials-promo-label = Add to Essentials
-zen-essentials-promo-sublabel = Keep your favorite tabs just a click away
+zen-essentials-promo-label = Add to Dock
+zen-essentials-promo-sublabel = Keep favorite sites one click away
 
 # These labels will be used for the site data panel settings
 zen-site-data-setting-allow = Allowed
@@ -129,8 +129,8 @@ zen-site-data-panel-feature-callout-title = A new home for add-ons, permissions,
 zen-site-data-panel-feature-callout-subtitle = Click the icon to manage site settings, view security info, access extensions, and perform common actions.
 
 zen-open-link-in-glance =
-    .label = Open Link in Glance
-    .accesskey = G
+    .label = Peek at Link
+    .accesskey = P
 
 zen-sidebar-notification-updated-heading = Update Complete!
 

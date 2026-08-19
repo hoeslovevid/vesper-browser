@@ -12,7 +12,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 
 class nsZenUIMigration {
   PREF_NAME = "zen.ui.migration.version";
-  MIGRATION_VERSION = 7;
+  MIGRATION_VERSION = 8;
 
   init(isNewProfile) {
     if (!isNewProfile) {
@@ -167,6 +167,21 @@ class nsZenUIMigration {
     Services.prefs.setBoolPref("zen.view.hide-window-controls", false);
     // Unofficial builds previously marked welcome as already seen.
     Services.prefs.setBoolPref("zen.welcome-screen.seen", false);
+  }
+
+  _migrateV8() {
+    Services.prefs.setBoolPref("zen.tabs.vertical", false);
+    Services.prefs.setBoolPref("zen.view.use-single-toolbar", false);
+    Services.prefs.setBoolPref("zen.view.sidebar-expanded", false);
+    Services.prefs.setStringPref("zen.urlbar.behavior", "normal");
+    Services.prefs.setBoolPref("zen.urlbar.replace-newtab", false);
+    Services.prefs.setBoolPref("zen.glance.enabled", false);
+    Services.prefs.setIntPref("zen.theme.border-radius", 12);
+    Services.prefs.setIntPref("zen.theme.content-element-separation", 10);
+    Services.prefs.setStringPref(
+      "browser.toolbars.bookmarks.visibility",
+      "never"
+    );
   }
 }
 
