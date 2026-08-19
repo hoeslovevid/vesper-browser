@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy defaults — Vesper</title>
+    <meta
+      name="description"
+      content="Vesper privacy defaults: telemetry off, HTTPS-Only, strict tracking protection, and Firefox add-on compatibility."
+    />
+    <meta name="theme-color" content="#090B11" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="./">
+          <img src="assets/logo.svg" alt="" />
+          Vesper
+        </a>
+        <nav class="nav-links">
+          <a href="./#features">Features</a>
+          <a href="./#privacy">Privacy</a>
+          <a href="https://github.com/hoeslovevid/vesper-browser">GitHub</a>
+          <a class="btn btn-gold" data-download href="https://github.com/hoeslovevid/vesper-browser/releases/latest">Download</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section wrap legal">
+      <h1>Privacy defaults</h1>
+      <p>
+        Vesper is meant to be a daily driver that is quieter than Firefox,
+        without the breakage of Tor Browser or full Resist Fingerprinting.
+      </p>
+
+      <h2>Locked</h2>
+      <p>These stay off. They cannot be turned back on in about:config:</p>
+      <ul>
+        <li>Telemetry, studies, and Normandy</li>
+        <li>Health report / data submission</li>
+        <li>“More from Mozilla” and VPN promo chrome</li>
+      </ul>
+
+      <h2>On by default, overridable</h2>
+      <ul>
+        <li>Strict tracking protection, including social and email tracking</li>
+        <li>Firefox Fingerprinting Protection (FPP), not full RFP</li>
+        <li>HTTPS-Only Mode</li>
+        <li>DNS over HTTPS via Quad9, with system DNS fallback</li>
+        <li>Cross-origin referrers trimmed to the host</li>
+        <li>Prefetch, DNS prefetch, and speculative connections off</li>
+        <li>Query stripping and bounce-tracking protection</li>
+        <li>Cookie banners set to reject when possible</li>
+        <li>Safe Browsing lists on; Google download-hash lookup off</li>
+        <li>Mozilla-signed add-ons required</li>
+      </ul>
+
+      <h2>Why not Resist Fingerprinting?</h2>
+      <p>
+        Full RFP is stronger, and it also breaks canvas, timezone, many sites,
+        and some extensions. Vesper ships FPP instead. You can enable RFP in
+        about:config if you want that tradeoff.
+      </p>
+
+      <h2>Accounts and Sync</h2>
+      <p>
+        Firefox Sync is opt-in. Vesper does not create an account for you.
+      </p>
+
+      <h2>Add-ons</h2>
+      <p>
+        Vesper keeps Firefox’s application ID so extensions from
+        addons.mozilla.org keep working. Branding is the name and icon;
+        compatibility is the GUID.
+      </p>
+
+      <p>
+        Vesper is based on Firefox and Zen Browser (MPL-2.0). It is not
+        affiliated with Mozilla or the Zen OSS Team.
+      </p>
+      <p><a href="./">Back to Vesper</a></p>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <p>© <span id="year"></span> Vesper · MPL-2.0</p>
+        <p>
+          <a href="https://github.com/hoeslovevid/vesper-browser">Source</a>
+        </p>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

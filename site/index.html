@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vesper — the evening browser</title>
+    <meta
+      name="description"
+      content="Vesper is a privacy-first Firefox fork with a calm, modern chrome. Vertical tabs, spaces, and add-ons from Mozilla."
+    />
+    <meta name="theme-color" content="#090B11" />
+    <meta property="og:title" content="Vesper — the evening browser" />
+    <meta
+      property="og:description"
+      content="A privacy-first Firefox fork with a calm, modern chrome."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://hoeslovevid.github.io/vesper-browser/"
+    />
+    <meta property="og:image" content="assets/logo.svg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="./">
+          <img src="assets/logo.svg" alt="" />
+          Vesper
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          Menu
+        </button>
+        <nav id="nav-links" class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="privacy.html">Defaults</a>
+          <a href="https://github.com/hoeslovevid/vesper-browser">GitHub</a>
+          <a class="btn btn-gold" data-download href="https://github.com/hoeslovevid/vesper-browser/releases/latest">Download</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap">
+        <p class="kicker">Now <span data-version>0.1.2</span> for Windows</p>
+        <h1>The evening browser.</h1>
+        <p class="lede">
+          A quieter Firefox. Collapsed tabs, spaces, and motion that stays out
+          of the way — with privacy on by default and add-ons from
+          addons.mozilla.org.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" data-download href="https://github.com/hoeslovevid/vesper-browser/releases/latest">
+            Download for Windows
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/hoeslovevid/vesper-browser">
+            View source
+          </a>
+        </div>
+        <p class="fine">
+          Free and open source, MPL-2.0. Windows SmartScreen may warn until the
+          installer is signed.
+        </p>
+
+        <div class="shot-wrap">
+          <figure class="shot" aria-hidden="true">
+            <aside class="rail">
+              <img class="rail-logo" src="assets/logo.svg" alt="" />
+              <span class="dot is-on"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </aside>
+            <div class="shot-main">
+              <div class="urlbar">search or enter address</div>
+              <div class="ntab">
+                <img src="assets/logo.svg" alt="" width="72" height="72" />
+                <h2>Good evening.</h2>
+                <p>Your tabs wait in the rail. The page has the rest.</p>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="features" class="section wrap">
+        <h2>Chrome that recedes.</h2>
+        <p class="section-intro">
+          Vesper keeps Zen’s architecture — vertical tabs, spaces, split view —
+          and starts with a slim icon rail so the web is the first thing you
+          see.
+        </p>
+        <div class="bento">
+          <article class="card">
+            <h3>Collapsed sidebar</h3>
+            <p>
+              Tabs live as a quiet icon rail. Expand it when you need names;
+              collapse it when you need canvas. The URL bar stays close to the
+              tabs.
+            </p>
+            <div class="mini-rail">
+              <div class="mini-rail-bar">
+                <span class="dot is-on"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="mini-page"></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Firefox add-ons</h3>
+            <p>
+              Vesper keeps Firefox’s application ID, so extensions from
+              addons.mozilla.org install the same way they do in Firefox.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Spaces</h3>
+            <p>
+              Separate work, weekend, and late-night sessions without mixing
+              cookies, tabs, or mood.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Updates from GitHub</h3>
+            <p>
+              About Vesper checks GitHub Releases, downloads the Windows
+              installer, and launches it. No Zen update server in the middle.
+            </p>
+          </article>
+          <article class="card span">
+            <h3>Gecko, not Chromium</h3>
+            <p>
+              The engine is Firefox. The chrome is Vesper. You get a modern
+              independent browser without giving up the web platform and
+              extension ecosystem you already know.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="privacy" class="section privacy">
+        <div class="wrap">
+          <h2>Quiet by default.</h2>
+          <p class="section-intro">
+            Telemetry stays off. Tracking protection is strict. HTTPS-Only and
+            DNS over HTTPS are on. You can loosen what you need — the noisy
+            bits stay locked.
+          </p>
+          <div class="privacy-grid">
+            <div>
+              <strong>No telemetry</strong>
+              <p>Studies, Normandy, and health-report submission are locked off.</p>
+            </div>
+            <div>
+              <strong>HTTPS-Only + DoH</strong>
+              <p>Encrypted by default, with Quad9 DNS and a system fallback.</p>
+            </div>
+            <div>
+              <strong>Fingerprinting protection</strong>
+              <p>
+                Firefox FPP, not full RFP — strong enough for daily driving
+                without breaking the web.
+              </p>
+            </div>
+          </div>
+          <p class="fine" style="margin-top: 28px">
+            Read the <a href="privacy.html">privacy defaults</a>. Vesper is not
+            affiliated with Mozilla or the Zen OSS Team.
+          </p>
+        </div>
+      </section>
+
+      <section class="section download wrap">
+        <h2>Take the evening with you.</h2>
+        <p class="section-intro" style="margin-inline: auto">
+          Vesper <span data-version>0.1.2</span> is ready for Windows 64-bit.
+          macOS and Linux builds will follow.
+        </p>
+        <a class="btn btn-gold" data-download href="https://github.com/hoeslovevid/vesper-browser/releases/latest">
+          Download Vesper for Windows
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div>
+          <a class="brand" href="./">
+            <img src="assets/logo.svg" alt="" width="28" height="28" />
+            Vesper
+          </a>
+          <p>Based on Firefox and Zen Browser. MPL-2.0.</p>
+        </div>
+        <div>
+          <a href="privacy.html">Privacy</a>
+          ·
+          <a href="https://github.com/hoeslovevid/vesper-browser/releases">Releases</a>
+          ·
+          <a href="https://github.com/hoeslovevid/vesper-browser">Source</a>
+          <p>© <span id="year"></span> Vesper</p>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

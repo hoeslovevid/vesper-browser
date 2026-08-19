@@ -2,6 +2,8 @@
 
 A privacy-first Firefox fork with Zen-class chrome: vertical tabs, workspaces, split view, and motion — plus Firefox extensions from [addons.mozilla.org](https://addons.mozilla.org).
 
+**Site:** [hoeslovevid.github.io/vesper-browser](https://hoeslovevid.github.io/vesper-browser/) (source in `site/`).
+
 Vesper is based on [Zen Browser](https://github.com/zen-browser/desktop) and Mozilla Firefox (MPL-2.0). It is **not** affiliated with Mozilla or the Zen OSS Team.
 
 | Channel | Version |

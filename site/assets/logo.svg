@@ -1,0 +1,17 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vesper-bg" x1="512" y1="64" x2="512" y2="960">
+      <stop offset="0" stop-color="#1A1E2B"/>
+      <stop offset="1" stop-color="#090B11"/>
+    </linearGradient>
+    <radialGradient id="vesper-glow" cx="54%" cy="46%" r="28%">
+      <stop offset="0" stop-color="#F7E7C2" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#E8C58A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="48" y="48" width="928" height="928" rx="208" fill="url(#vesper-bg)"/>
+  <circle cx="548" cy="470" r="150" fill="url(#vesper-glow)"/>
+  <path fill="#E8C58A" d="M430 250c-118 52-196 168-196 302 0 134 78 250 196 302-146-38-254-172-254-302S284 288 430 250z"/>
+  <path fill="#F3D7A1" d="M548 318l28 92 96 8-74 62 24 94-74-50-74 50 24-94-74-62 96-8 28-92z"/>
+  <circle cx="548" cy="470" r="18" fill="#FFF6E4"/>
+</svg>
