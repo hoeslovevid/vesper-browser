@@ -1,5 +1,17 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="64" y="64" width="896" height="896" rx="200" fill="#12141C"/>
-  <path fill="#E8C58A" d="M612 214c-39 8-76 24-108 47-91 65-150 172-150 291 0 119 59 226 150 291 32 23 69 39 108 47-88-18-168-70-220-145-55-80-78-179-63-276 14-93 66-177 144-230 49-33 106-54 165-61 8-1 16-1 24-1-17 12-33 26-50 37z"/>
-  <path fill="#E8C58A" d="M708 318l22 68 72 8-56 46 18 70-62-38-62 38 18-70-56-46 72-8 22-68z"/>
+  <defs>
+    <linearGradient id="vesper-bg" x1="512" y1="64" x2="512" y2="960">
+      <stop offset="0" stop-color="#1A1E2B"/>
+      <stop offset="1" stop-color="#090B11"/>
+    </linearGradient>
+    <radialGradient id="vesper-glow" cx="54%" cy="46%" r="28%">
+      <stop offset="0" stop-color="#F7E7C2" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#E8C58A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="48" y="48" width="928" height="928" rx="208" fill="url(#vesper-bg)"/>
+  <circle cx="548" cy="470" r="150" fill="url(#vesper-glow)"/>
+  <path fill="#E8C58A" d="M430 250c-118 52-196 168-196 302 0 134 78 250 196 302-146-38-254-172-254-302S284 288 430 250z"/>
+  <path fill="#F3D7A1" d="M548 318l28 92 96 8-74 62 24 94-74-50-74 50 24-94-74-62 96-8 28-92z"/>
+  <circle cx="548" cy="470" r="18" fill="#FFF6E4"/>
 </svg>

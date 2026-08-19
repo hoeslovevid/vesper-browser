@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 - name: zen.urlbar.replace-newtab
-  value: false
+  value: true
 
 - name: zen.urlbar.show-protections-icon
   value: true
@@ -12,7 +12,7 @@
   value: false
 
 - name: zen.urlbar.behavior
-  value: normal
+  value: floating-on-type
 
 - name: zen.urlbar.wait-to-clear
   value: 45000

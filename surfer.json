@@ -20,7 +20,7 @@
       "brandShortName": "Vesper",
       "brandFullName": "Vesper",
       "release": {
-        "displayVersion": "0.1.0a",
+        "displayVersion": "0.1.1",
         "github": {
           "repo": "hoeslovevid/vesper-browser"
         },

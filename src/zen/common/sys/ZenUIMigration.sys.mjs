@@ -12,7 +12,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 
 class nsZenUIMigration {
   PREF_NAME = "zen.ui.migration.version";
-  MIGRATION_VERSION = 8;
+  MIGRATION_VERSION = 9;
 
   init(isNewProfile) {
     if (!isNewProfile) {
@@ -182,6 +182,15 @@ class nsZenUIMigration {
       "browser.toolbars.bookmarks.visibility",
       "never"
     );
+  }
+
+  _migrateV9() {
+    Services.prefs.setBoolPref("zen.tabs.vertical", true);
+    Services.prefs.setBoolPref("zen.view.use-single-toolbar", true);
+    Services.prefs.setBoolPref("zen.view.sidebar-expanded", false);
+    Services.prefs.setStringPref("zen.urlbar.behavior", "floating-on-type");
+    Services.prefs.setBoolPref("zen.urlbar.replace-newtab", true);
+    Services.prefs.setBoolPref("zen.tabs.show-newtab-vertical", true);
   }
 }
 

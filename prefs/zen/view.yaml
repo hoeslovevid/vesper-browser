@@ -16,10 +16,11 @@
   value: true
   condition: "defined(XP_MACOSX)"
 
-# Forced on when vertical tabs are off; keep false so a top URL bar exists if users re-enable the sidebar.
+# URL bar lives in the sidebar so the top of the window stays empty.
 - name: zen.view.use-single-toolbar
-  value: false
+  value: true
 
+# Icon rail by default; the expand-sidebar button widens it.
 - name: zen.view.sidebar-expanded
   value: false
 

@@ -2,9 +2,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Safari-like horizontal tabs. Users can still switch back in Settings.
+# Vertical tab rail on the left. Collapse it with the expand-sidebar button.
 - name: zen.tabs.vertical
-  value: false
+  value: true
 
 - name: zen.tabs.vertical.right-side
   value: false
@@ -16,7 +16,7 @@
   value: 12
 
 - name: zen.tabs.show-newtab-vertical
-  value: false
+  value: true
 
 - name: zen.tabs.close-window-with-empty
   value: true
