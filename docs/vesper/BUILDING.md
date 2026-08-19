@@ -83,7 +83,7 @@ Before other people download this:
 1. Your own GitHub repo (replace placeholder `vesper-browser/desktop`)
 2. Replace Zen’s GitHub Actions under `.github/workflows/`
 3. Windows Authenticode signing (otherwise SmartScreen blocks the installer)
-4. GitHub Releases power the in-app update toast (`vesper.updates.github-repo`). Tag releases as `v0.1.1` (matching `displayVersion` in `surfer.json`). Full Firefox MAR auto-install still needs `updateHostname` later.
+4. GitHub Releases power About → Check for updates and the Help-menu toast (`vesper.updates.github-repo`). Tag releases as `v0.1.2` (matching `displayVersion` in `surfer.json`). Windows downloads the installer from GitHub; full Firefox MAR auto-install still needs `updateHostname` later.
 5. Stay within days of Firefox security releases
 
 ## API keys

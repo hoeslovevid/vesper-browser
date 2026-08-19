@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
+import { Downloads } from "resource://gre/modules/Downloads.sys.mjs";
 
 const ENABLED_PREF = "vesper.updates.enabled";
 const REPO_PREF = "vesper.updates.github-repo";
@@ -10,12 +11,23 @@ const INTERVAL_PREF = "vesper.updates.check-interval-seconds";
 const LAST_CHECK_PREF = "vesper.updates.last-check";
 const LAST_NOTIFIED_PREF = "vesper.updates.last-notified-tag";
 const INCLUDE_PRERELEASE_PREF = "vesper.updates.include-prerelease";
+const CURRENT_VERSION_PREF = "vesper.updates.current-version";
 const STARTUP_DELAY_MS = 20000;
 
 let inFlight = null;
 
-function currentVersion() {
-  return AppConstants.MOZ_APP_VERSION_DISPLAY || Services.appinfo.version;
+export function currentVersion() {
+  const pinned = Services.prefs.getStringPref(CURRENT_VERSION_PREF, "");
+  if (pinned) {
+    return pinned;
+  }
+  const display =
+    AppConstants.MOZ_APP_VERSION_DISPLAY || Services.appinfo.version;
+  // Unofficial Firefox configure uses 1.0.0, which is not the Vesper tag.
+  if (/^1\.0\.0/.test(display) || display === "154.0") {
+    return "0.0.0";
+  }
+  return display;
 }
 
 function splitVersion(raw) {
@@ -57,12 +69,14 @@ function browserWindow() {
   return Services.wm.getMostRecentWindow("navigator:browser");
 }
 
-function openReleasePage(url) {
-  const win = browserWindow();
-  win.openTrustedLinkIn(url, "tab", {
-    forceForeground: true,
-    triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal(),
-  });
+export function pickInstallerAsset(release) {
+  const assets = release?.assets || [];
+  return (
+    assets.find(asset => /win64.*\.exe$/i.test(asset.name)) ||
+    assets.find(asset => /windows.*\.exe$/i.test(asset.name)) ||
+    assets.find(asset => /\.exe$/i.test(asset.name)) ||
+    null
+  );
 }
 
 async function fetchLatestRelease(repo, includePrerelease) {
@@ -95,11 +109,37 @@ async function fetchLatestRelease(repo, includePrerelease) {
   return data.draft ? null : data;
 }
 
+export async function downloadGithubInstaller(release, { onProgress } = {}) {
+  const asset = pickInstallerAsset(release);
+  if (!asset?.browser_download_url) {
+    throw new Error("No Windows installer was attached to the GitHub release");
+  }
+  const dir = await Downloads.getPreferredDownloadsDirectory();
+  const sep = AppConstants.platform === "win" ? "\\" : "/";
+  const target = `${dir.replace(/[\\/]+$/, "")}${sep}${asset.name}`;
+  const list = await Downloads.getList(Downloads.ALL);
+  const download = await Downloads.createDownload({
+    source: asset.browser_download_url,
+    target,
+  });
+  await list.add(download);
+  if (onProgress) {
+    download.onchange = () => {
+      onProgress(download.currentBytes || 0, download.totalBytes || -1);
+    };
+  }
+  await download.start();
+  if (!download.succeeded) {
+    throw new Error(download.error?.message || "GitHub installer download failed");
+  }
+  const file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
+  file.initWithPath(download.target.path);
+  file.launch();
+  return download;
+}
+
 async function notifyAvailable(win, release) {
   const version = (release.tag_name || release.name || "").replace(/^v/i, "");
-  const url =
-    release.html_url ||
-    `https://github.com/${Services.prefs.getStringPref(REPO_PREF)}/releases/latest`;
   await win.gZenUIManager.showToast("vesper-updates-available", {
     timeout: 25000,
     version,
@@ -107,7 +147,14 @@ async function notifyAvailable(win, release) {
     descriptionId: "vesper-updates-available-description",
     button: {
       id: "vesper-updates-download-button",
-      command: () => openReleasePage(url),
+      command: () => {
+        downloadGithubInstaller(release).catch(error => {
+          console.warn("Vesper installer download failed", error);
+          win.gZenUIManager.showToast("vesper-updates-check-failed", {
+            timeout: 5000,
+          });
+        });
+      },
     },
   });
   const button = win.document.getElementById("vesper-updates-download-button");
@@ -119,21 +166,21 @@ async function notifyAvailable(win, release) {
 export async function checkForVesperUpdates({
   force = false,
   interactive = false,
+  notify = true,
 } = {}) {
   if (inFlight) {
     return inFlight;
   }
   inFlight = (async () => {
     const win = browserWindow();
-    if (!win?.gZenUIManager) {
-      return { status: "no-window" };
+    if (win) {
+      win.MozXULElement.insertFTLIfNeeded("browser/vesper-updates.ftl");
     }
-    win.MozXULElement.insertFTLIfNeeded("browser/vesper-updates.ftl");
 
     if (
       !Services.prefs.getBoolPref(ENABLED_PREF, true) ||
       (!force &&
-        (win.gZenUIManager.testingEnabled || Services.env.get("MOZ_HEADLESS")))
+        (win?.gZenUIManager?.testingEnabled || Services.env.get("MOZ_HEADLESS")))
     ) {
       return { status: "disabled" };
     }
@@ -150,6 +197,12 @@ export async function checkForVesperUpdates({
       return { status: "misconfigured" };
     }
 
+    const showToast = id => {
+      if (notify && interactive && win?.gZenUIManager) {
+        win.gZenUIManager.showToast(id, { timeout: 4000 });
+      }
+    };
+
     try {
       const release = await fetchLatestRelease(
         repo,
@@ -157,35 +210,35 @@ export async function checkForVesperUpdates({
       );
       Services.prefs.setIntPref(LAST_CHECK_PREF, now);
       if (!release) {
-        if (interactive) {
-          win.gZenUIManager.showToast("vesper-updates-none", { timeout: 4000 });
-        }
+        showToast("vesper-updates-none");
         return { status: "none" };
       }
 
       const tag = release.tag_name || release.name || "";
       const local = currentVersion();
       if (!isNewerVersion(tag, local)) {
-        if (interactive) {
+        if (notify && interactive && win?.gZenUIManager) {
           win.gZenUIManager.showToast("vesper-updates-up-to-date", {
             timeout: 4000,
             l10nArgs: { version: local },
           });
         }
-        return { status: "current", tag, local };
+        return { status: "current", tag, local, release };
       }
 
       const lastNotified = Services.prefs.getStringPref(LAST_NOTIFIED_PREF, "");
       if (!force && lastNotified === tag) {
-        return { status: "already-notified", tag };
+        return { status: "already-notified", tag, local, release };
       }
 
-      await notifyAvailable(win, release);
-      Services.prefs.setStringPref(LAST_NOTIFIED_PREF, tag);
-      return { status: "available", tag, local };
+      if (notify && win?.gZenUIManager) {
+        await notifyAvailable(win, release);
+        Services.prefs.setStringPref(LAST_NOTIFIED_PREF, tag);
+      }
+      return { status: "available", tag, local, release };
     } catch (error) {
       console.warn("Vesper update check failed", error);
-      if (interactive) {
+      if (notify && interactive && win?.gZenUIManager) {
         win.gZenUIManager.showToast("vesper-updates-check-failed", {
           timeout: 5000,
         });

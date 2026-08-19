@@ -19,3 +19,13 @@
 
 - name: vesper.updates.include-prerelease
   value: false
+
+- name: vesper.updates.current-version
+  value: "0.1.2"
+
+# Do not query Zen's MAR server in the background.
+- name: app.update.staging.enabled
+  value: false
+
+- name: app.update.service.enabled
+  value: false

@@ -6,7 +6,7 @@ vesper-updates-check-menu =
     .label = Check for Vesper Updates
 
 vesper-updates-available = Vesper { $version } is available
-vesper-updates-available-description = Download the new installer from GitHub.
+vesper-updates-available-description = Download the Windows installer from GitHub and run it to update.
 vesper-updates-download =
     .label = Download
 

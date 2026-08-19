@@ -1,0 +1,11 @@
+diff --git a/browser/app/distribution/policies.json b/browser/app/distribution/policies.json
+new file mode 100644
+--- /dev/null
++++ b/browser/app/distribution/policies.json
+@@ -0,0 +1,7 @@
++{
++  "policies": {
++    "AppAutoUpdate": false,
++    "BackgroundAppUpdate": false
++  }
++}
